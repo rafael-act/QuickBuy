@@ -11,25 +11,27 @@ namespace QuickBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.HasKey(p=>p.Id);
+            builder.HasKey(p => p.Id);
             builder.Property(u => u.Email)
                 .IsRequired()
                 .HasMaxLength(50);
 
             builder.Property(u => u.Senha)
                 .IsRequired()
-                .HasMaxLength(400); 
-            
+                .HasMaxLength(400);
+
             builder.Property(u => u.Nome).IsRequired()
                 .HasMaxLength(50)
                 .HasColumnType("nvarchar");
+
             builder.Property(u => u.Sobrenome).IsRequired()
                .HasMaxLength(50)
                .HasColumnType("nvarchar");
 
             builder.Property(u => u.Senha);
 
-            //builder.Property(u => u.Pedidos);
+            builder.HasMany(u => u.Pedidos)
+                .WithOne(p => p.Usuario);//acesso a propriedades do pedido;
         }
     }
 }
