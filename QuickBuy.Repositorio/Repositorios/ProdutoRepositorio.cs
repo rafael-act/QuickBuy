@@ -3,11 +3,17 @@ using QuickBuy.Dominio.Contratos;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using QuickBuy.Repositorio.Contexto;
 
 namespace QuickBuy.Repositorio.Repositorios
 {
     public class ProdutoRepositorio : BaseRepositorio<Usuario>, IUsuarioRepositorio
     {
+
+        public ProdutoRepositorio(QuickBuyContexto quickBuyContexto) : base(quickBuyContexto)
+        {
+        }
+
         public void Adicionar(Usuario entity)
         {
             throw new NotImplementedException();
