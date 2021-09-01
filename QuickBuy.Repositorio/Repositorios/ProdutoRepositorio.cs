@@ -7,36 +7,36 @@ using QuickBuy.Repositorio.Contexto;
 
 namespace QuickBuy.Repositorio.Repositorios
 {
-    public class ProdutoRepositorio : BaseRepositorio<Usuario>, IUsuarioRepositorio
+    public class ProdutoRepositorio : BaseRepositorio<Produto>, IProdutoRepositorio
     {
 
         public ProdutoRepositorio(QuickBuyContexto quickBuyContexto) : base(quickBuyContexto)
         {
         }
 
-        public void Adicionar(Usuario entity)
+        public void Adicionar(Produto entity)
+        {
+            Adicionar(entity);
+        }
+
+        public void Atualizar(Produto entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Atualizar(Usuario entity)
+        public void Remover(Produto entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Remover(Usuario entity)
+        Produto IBaseRepositorio<Produto>.ObterPorId(int id)
         {
             throw new NotImplementedException();
         }
 
-        Usuario IBaseRepositorio<Usuario>.ObterPorId(int id)
+        IEnumerable<Produto> IBaseRepositorio<Produto>.ObterTodos()
         {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<Usuario> IBaseRepositorio<Usuario>.ObterTodos()
-        {
-            throw new NotImplementedException();
+            return ObterTodos();
         }
     }
 }
