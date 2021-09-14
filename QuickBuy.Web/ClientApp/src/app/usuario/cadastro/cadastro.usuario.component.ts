@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { Usuario } from "../../modelo/usuario";
+import { Usuario } from "../../model/usuario"; 
 import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
 
 @Component({
   selector: "cadastro-usuario",
   templateUrl: "./cadastro.usuario.component.html",
-  styles: ["./cadastro.usuario.component.css"]
+  styleUrls: ["./cadastro.usuario.component.css"]
 })
 
 export class CadastroUsuarioComponent implements OnInit {
@@ -20,10 +20,11 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   public cadastrar() {
-    this.usuarioServico.cadastrarUsuario(this.usuario)
-      .subscribe(
-        usuarioJson => { },
-        err => {}
-      );
+    alert("Nome" + this.usuario.nome + " senha " + this.usuario.senha + " email " + this.usuario.email + " sobrenome " + this.usuario.sobreNome)
+      ;    //this.usuarioServico.cadastrarUsuario(this.usuario)
+    //  .subscribe(
+    //    usuarioJson => { },
+    //    err => {}
+    //  ); 
   }
 }

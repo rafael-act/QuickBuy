@@ -39,7 +39,7 @@ export class UsuarioServico {
     const headers = new HttpHeaders().set('content-type', 'application/json');
     var body = {
       email: usuario.email,
-      senha: usuario.senha
+      senha: usuario.senha 
     }
 
     //this.baseUrl = raiz do site que pode ser exemplo.: http://www.quickbuy.com
