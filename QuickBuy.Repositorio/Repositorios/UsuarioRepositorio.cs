@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using QuickBuy.Repositorio.Contexto;
+using System.Linq;
 
 namespace QuickBuy.Repositorio.Repositorios
 {
@@ -21,6 +22,11 @@ namespace QuickBuy.Repositorio.Repositorios
         public void Atualizar(Usuario entity)
         {
             throw new NotImplementedException();
+        }
+
+        public Usuario Obter(string email, string senha)
+        {
+            return QuickBuyContexto.Usuarios.FirstOrDefault(u=>u.Email==email && u.Senha==senha);
         }
 
         public void Remover(Usuario entity)
