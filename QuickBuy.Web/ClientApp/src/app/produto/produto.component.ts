@@ -1,8 +1,9 @@
 import {Component } from "@angular/core"
 
 @Component({
-  selector: "produto",//nomedatag
-  template:"<html><body>{{ obterNome() }}</body></html>",
+  selector: "app-produto",//nomedatag
+  template: "./produto.component.html",
+  styleUrls:["./produto.component.css"]
 })
 
 export class ProdutoComponent {//nome das classes começando com maiusculo para convencao PascalCase
