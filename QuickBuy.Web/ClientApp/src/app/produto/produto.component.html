@@ -1,13 +1,59 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProdutoComponent = void 0;
-var ProdutoComponent = /** @class */ (function () {
-    function ProdutoComponent() {
-    }
-    ProdutoComponent.prototype.obterNome = function () {
-        return this.nome;
-    };
-    return ProdutoComponent;
-}());
-exports.ProdutoComponent = ProdutoComponent;
-//# sourceMappingURL=produto.component.js.map
+<h1 class="h4 titulo">Cadastro de Produtos</h1>
+
+<label for="inputNome" class="sr-only">Nome</label>
+<input id="inputNome"
+       name="nomeProduto"
+       class="form-control mb-2 col-md-4"
+       type="text"
+       placeholder="Nome do Produto"
+       [(ngModel)]="produto.nome"
+       #nome="ngModel"
+       required />
+
+<div class="invalid-feedback mb-2" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+   <div *ngIf="nome.errors.required">
+     Nome do produto é de preenchimento obrigatório
+   </div>
+</div>
+
+<label for="inputNome" class="sr-only">Nome</label>
+<input id="inputDescricao"
+       name="descricaoProduto"
+       class="form-control mb-2 col-md-4"
+       type="text"
+       placeholder="Descrição do Produto"
+       [(ngModel)]="produto.descricao"
+       #descricao="ngModel"
+       required />
+<div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
+  <div *ngIf="descricao.errors.required">
+    Descrição do produto é de preenchimento obrigatório
+  </div>
+</div>
+
+<label for="inputPreco" class="sr-only">Preco</label>
+<input id="inputPreco"
+       name="precoProduto"
+       class="form-control mb-2 col-md-2"
+       type="number"
+       placeholder="Preco do Produto"
+       [(ngModel)]="produto.preco"
+       #preco="ngModel"
+       required />
+<div class="invalid-feedback mb-2" *ngIf="preco.invalid && (preco.dirty || preco.touched)">
+  <div *ngIf="preco.errors.required">
+    Preco do produto é de preenchimento obrigatório
+  </div>
+</div>
+
+<div class="input-group">
+  <div class="custom-file">
+    <input type="file"
+           id="inputFile"
+           name=""
+           class="custom-file-input mb-2 form-control mb-2 col-md-4"
+           placeholder="" />
+    <label for="inputFile" class="custom-file-label">Escolha uma foto para o produto</label>
+  </div>
+</div>
+<button class="btn btn-primary" (click)="cadastrar">Cadastrar</button>
