@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Usuario } from "../../model/usuario"; 
 import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
 
