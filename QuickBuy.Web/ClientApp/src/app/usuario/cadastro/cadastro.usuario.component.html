@@ -56,7 +56,7 @@
     <!--sobrenome-->
     <label for="inputSobreNome" class="sr-only">Sobrenome</label><!--sr-only recurso de acessibilidade-->
     <input type="text" id="inputSobreNome" name="sobrenome" value="" placeholder="Sobrenome" class="form-control mb-3"
-           [(ngModel)]="usuario.sobrenome"
+           [(ngModel)]="usuario.sobreNome"
            #sobrenome="ngModel"
            [ngClass]="{
            'is-invalid':sobrenome.invalid && (sobrenome.dirty || sobrenome.touched),
@@ -81,7 +81,7 @@
       {{mensagem}}
     </div>
     <div class="alert alert-success" *ngIf="usuarioCadastrado">
-      Usuario cadastrado com sucesso!<a class="alert-link" [routerLink]='["/entrar"]'>Clique aqui</a> para entrar no sistema com a sua conta.
+      Usuario cadastrado com sucesso! <a class="alert-link" [routerLink]='["/entrar"]'>Clique aqui</a> para entrar no sistema com a sua conta.
     </div>
   </form>
   <div class="alert alert-primary" role="alert" *ngIf="usuarioAutenticado">

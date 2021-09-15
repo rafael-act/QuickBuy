@@ -16,7 +16,9 @@ namespace QuickBuy.Repositorio.Repositorios
 
         public void Adicionar(Usuario entity)
         {
-            throw new NotImplementedException();
+            QuickBuyContexto.Usuarios.Add(entity);
+            QuickBuyContexto.SaveChanges();
+            return;
         }
 
         public void Atualizar(Usuario entity)
