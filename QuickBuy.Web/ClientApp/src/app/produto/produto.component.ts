@@ -12,6 +12,9 @@ import { ProdutoServico } from "../servicos/produto/produto.servico"
 export class ProdutoComponent implements OnInit {//nome das classes começando com maiusculo para convencao PascalCase
 
   public produto: Produto
+  public arquivoSelecionado: File;
+  public ativar_spinner: boolean;
+  public mensagem: string;
 
   constructor(private produtoServico: ProdutoServico) {
 
@@ -22,16 +25,43 @@ export class ProdutoComponent implements OnInit {//nome das classes começando c
   }
 
   public cadastrar() {
-    //this.produto
+    this.ativarEspera();
     this.produtoServico.cadastrar(this.produto)
       .subscribe(
         produtoJson => {
           console.log(produtoJson);
+          this.desativarEspera();
         },
         e => {
           console.log(e.error);
-          debugger;
+          this.mensagem = e.error;
+          this.desativarEspera();
         }
       )
+  }
+
+  public ativarEspera() {
+    this.ativar_spinner = true;
+  }
+  public desativarEspera() {
+    this.ativar_spinner = false;
+  }
+
+  public inputChange(files: FileList) {
+    //upload de arquivo
+    this.ativar_spinner = true;
+    this.arquivoSelecionado = files.item(0);
+    this.produtoServico.enviarArquivo(this.arquivoSelecionado)
+      .subscribe(
+        nomeArquivo => {
+          this.produto.nomeArquivo = nomeArquivo;
+          console.log(nomeArquivo);
+          this.ativar_spinner = false;
+        },
+        err => {
+          console.log(err.error);
+          this.ativar_spinner = false;
+        }
+      );
   }
 }

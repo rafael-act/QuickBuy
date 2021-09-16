@@ -17,7 +17,7 @@ namespace QuickBuy.Dominio.Entidades
         }
 
         public abstract void Validate();
-        protected bool EhValido
+        public bool EhValido
         {
             get
             {
@@ -33,6 +33,11 @@ namespace QuickBuy.Dominio.Entidades
         protected void AdicionarCritica(string mensagem)
         {
             mensagemValidacao.Add(mensagem);
+        }
+
+        public string ObterMensagensValidacao()
+        {
+            return string.Join(". ", mensagemValidacao);//junta as mensagens de validação em uma unica string
         }
     }
 }

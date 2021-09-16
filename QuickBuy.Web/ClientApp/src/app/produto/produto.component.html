@@ -4,6 +4,10 @@
 <input id="inputNome"
        name="nomeProduto"
        class="form-control mb-2 col-md-4"
+       [ngClass]="{
+           'is-invalid':nome.invalid && (nome.dirty || nome.touched),
+           'is-valid':nome.valid && (nome.dirty || nome.touched)
+           }"
        type="text"
        placeholder="Nome do Produto"
        [(ngModel)]="produto.nome"
@@ -11,15 +15,19 @@
        required />
 
 <div class="invalid-feedback mb-2" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
-   <div *ngIf="nome.errors.required">
-     Nome do produto é de preenchimento obrigatório
-   </div>
+  <div *ngIf="nome.errors.required">
+    Nome do produto é de preenchimento obrigatório
+  </div>
 </div>
 
 <label for="inputNome" class="sr-only">Nome</label>
 <input id="inputDescricao"
        name="descricaoProduto"
        class="form-control mb-2 col-md-4"
+        [ngClass]="{
+           'is-invalid':descricao.invalid && (descricao.dirty || descricao.touched),
+           'is-valid':descricao.valid && (descricao.dirty || descricao.touched)
+           }"
        type="text"
        placeholder="Descrição do Produto"
        [(ngModel)]="produto.descricao"
@@ -31,10 +39,15 @@
   </div>
 </div>
 
+<!--no ngclass utilizar a variavel de ambiente ex.: #preco-->
 <label for="inputPreco" class="sr-only">Preco</label>
 <input id="inputPreco"
        name="precoProduto"
        class="form-control mb-2 col-md-2"
+         [ngClass]="{
+           'is-invalid':preco.invalid && (preco.dirty || preco.touched),
+           'is-valid':preco.valid && (preco.dirty || preco.touched)
+           }"
        type="number"
        placeholder="Preco do Produto"
        [(ngModel)]="produto.preco"
@@ -46,14 +59,23 @@
   </div>
 </div>
 
-<div class="input-group">
-  <div class="custom-file">
-    <input type="file"
+<div class="input-group mb-2">
+  <div class="custom-file col-md-4">
+    <!--adicionando o evento de mudança para subir arquivos-->
+    <input type="file" (change)="inputChange($event.target.files)"
            id="inputFile"
            name=""
-           class="custom-file-input mb-2 form-control mb-2 col-md-4"
+           class="custom-file-input"
            placeholder="" />
-    <label for="inputFile" class="custom-file-label">Escolha uma foto para o produto</label>
+    <label for="inputFile" class="custom-file-label">Escolha uma foto</label>
   </div>
 </div>
-<button class="btn btn-primary" (click)="cadastrar">Cadastrar</button>
+
+<button class="btn btn-primary mb-2 col-md-4" (click)="cadastrar()" [disabled]="ativar_spinner">
+  <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+  Cadastrar
+</button>
+
+<div class="alert alert-danger col-md-4" *ngIf="mensagem">
+  {{mensagem}}
+</div>
