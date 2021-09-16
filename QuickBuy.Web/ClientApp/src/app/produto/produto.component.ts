@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core"
+import { Router } from "@angular/router";
 import { Produto } from "../model/produto"
 import { ProdutoServico } from "../servicos/produto/produto.servico"
 
@@ -16,7 +17,7 @@ export class ProdutoComponent implements OnInit {//nome das classes começando c
   public ativar_spinner: boolean;
   public mensagem: string;
 
-  constructor(private produtoServico: ProdutoServico) {
+  constructor(private produtoServico: ProdutoServico,private router: Router) {
 
   }
 
@@ -31,6 +32,7 @@ export class ProdutoComponent implements OnInit {//nome das classes começando c
         produtoJson => {
           console.log(produtoJson);
           this.desativarEspera();
+          this.router.navigate(['/pesquisar-produto']);
         },
         e => {
           console.log(e.error);

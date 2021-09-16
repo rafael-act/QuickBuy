@@ -1,0 +1,21 @@
+.titulo{
+    color:#666;
+}
+
+tr img{
+    width:50%;
+    height:auto;
+}
+
+.td-descricao{
+    width:50%;
+}
+
+
+.td-preco {
+  width: 10%;
+}
+
+.td-imagem {
+  width: 50%;
+}

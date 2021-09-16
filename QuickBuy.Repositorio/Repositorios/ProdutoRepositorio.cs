@@ -28,7 +28,9 @@ namespace QuickBuy.Repositorio.Repositorios
 
         public void Remover(Produto entity)
         {
-            throw new NotImplementedException();
+            QuickBuyContexto.Produtos.Remove(entity);
+            QuickBuyContexto.SaveChanges();
+            return;
         }
 
         Produto IBaseRepositorio<Produto>.ObterPorId(int id)
@@ -38,7 +40,7 @@ namespace QuickBuy.Repositorio.Repositorios
 
         IEnumerable<Produto> IBaseRepositorio<Produto>.ObterTodos()
         {
-            return ObterTodos();
+            return QuickBuyContexto.Produtos;
         }
     }
 }

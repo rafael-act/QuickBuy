@@ -30,11 +30,11 @@ namespace QuickBuy.Web.Controllers
         {
             try
             {
-                return Ok(_produtoRepositorio.ObterTodos());
+                return Json(_produtoRepositorio.ObterTodos());
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -92,6 +92,13 @@ namespace QuickBuy.Web.Controllers
             var novoNomeArquivo = new string(arrayNomeCompacto).Replace(" ", "-");
             novoNomeArquivo = $"{novoNomeArquivo}{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}.{extensao}";
             return novoNomeArquivo;
+        }
+
+        [HttpPost("Deletar")]
+        public IActionResult Deletar([FromBody]Produto produto)
+        {
+            _produtoRepositorio.Remover(produto);
+            return Json(_produtoRepositorio.ObterTodos());
         }
     }
 }
