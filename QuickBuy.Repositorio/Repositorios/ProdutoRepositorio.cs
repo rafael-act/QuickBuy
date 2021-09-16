@@ -23,7 +23,9 @@ namespace QuickBuy.Repositorio.Repositorios
 
         public void Atualizar(Produto entity)
         {
-            throw new NotImplementedException();
+            QuickBuyContexto.Produtos.Update(entity);
+            QuickBuyContexto.SaveChanges();
+            return;
         }
 
         public void Remover(Produto entity)

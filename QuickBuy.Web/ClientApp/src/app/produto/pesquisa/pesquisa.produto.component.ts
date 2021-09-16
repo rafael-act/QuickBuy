@@ -38,11 +38,16 @@ export class PesquisaProdutoComponent implements OnInit {
       this.produtoServico.deletar(produto)
         .subscribe(
           produtos => {
-            this.produtos=produtos;
+            this.produtos = produtos;
           },
           e => {
             console.log(e.error);
           });
     }
+  }
+
+  public editarproduto(produto: Produto) {
+    sessionStorage.setItem('produtoSession', JSON.stringify(produto));
+    this.router.navigate(['/produto']);
   }
 }

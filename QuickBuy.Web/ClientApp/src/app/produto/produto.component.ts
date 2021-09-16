@@ -17,12 +17,20 @@ export class ProdutoComponent implements OnInit {//nome das classes começando c
   public ativar_spinner: boolean;
   public mensagem: string;
 
-  constructor(private produtoServico: ProdutoServico,private router: Router) {
+  constructor(private produtoServico: ProdutoServico, private router: Router) {
 
   }
 
+
+
   ngOnInit(): void {
-    this.produto = new Produto();
+    var produtoSession = sessionStorage.getItem('produtoSession');
+    if (produtoSession) {
+      this.produto = JSON.parse(produtoSession)
+    }
+    else {
+      this.produto = new Produto();
+    }
   }
 
   public cadastrar() {
