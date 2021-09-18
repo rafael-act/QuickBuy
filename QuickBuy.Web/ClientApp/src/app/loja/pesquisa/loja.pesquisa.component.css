@@ -2,3 +2,7 @@
   width: 200px;
   height: auto;
 }
+
+.row a{
+    cursor:pointer;
+}

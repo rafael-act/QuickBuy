@@ -1,5 +1,7 @@
 # QuickBuy.Web
 
+Projeto criado praticando no curso "ASP NET Core e Angular Para Iniciantes com loja virtual" de Leonardo Souza @HackerAcademy
+Na plataforma Udemy
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
 ## Development server

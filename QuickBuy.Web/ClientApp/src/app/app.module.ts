@@ -16,6 +16,7 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { TruncateModule } from 'ng2-truncate';
+import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TruncateModule } from 'ng2-truncate';
     LoginComponent,
     CadastroUsuarioComponent,
     PesquisaProdutoComponent,
-    LojaPesquisaComponent
+    LojaPesquisaComponent,
+    LojaProdutoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,7 +40,8 @@ import { TruncateModule } from 'ng2-truncate';
       { path: 'produto', component: ProdutoComponent },//passa por validação
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
-      { path: 'pesquisar-produto', component: PesquisaProdutoComponent }
+      { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
+      { path: 'loja-produto', component: LojaProdutoComponent }
     ])//sistema de rotas
   ],
   providers: [UsuarioServico, ProdutoServico],

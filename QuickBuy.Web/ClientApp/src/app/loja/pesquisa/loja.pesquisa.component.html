@@ -3,14 +3,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let p of produtos">
-      <div class="card" style="width: 18rem;">
-        <img class="cart-top" src="../../../../../arquivos/{{p.nomeArquivo}}" class="card-img-top" alt="{{p.nome}}">
-        <div class="card-body">
-          <div class="card-text">{{p.descricao | truncate: 40}}</div>
-          <h5 class="btn btn-primary">{{p.preco}}</h5>
+      <a (click)="abrirProduto(p)" >
+        <div class="card" style="width: 18rem;">
+          <img class="cart-top" src="../../../../../arquivos/{{p.nomeArquivo}}" alt="{{p.nome}}">
+          <div class="card-body">
+            <div class="card-text">{{p.descricao | truncate: 40}}</div>
+            <h5 class="btn btn-primary">{{p.preco}}</h5>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
-       
 </div>
