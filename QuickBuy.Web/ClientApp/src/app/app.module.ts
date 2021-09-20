@@ -42,7 +42,7 @@ import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
       { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },//passa por validação
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
-      { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
+      { path: 'pesquisar-produto', component: PesquisaProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'loja-produto', component: LojaProdutoComponent },
       { path: 'loja-efetivar', component: LojaEfetivarComponent, canActivate: [GuardaRotas] }
     ])//sistema de rotas
