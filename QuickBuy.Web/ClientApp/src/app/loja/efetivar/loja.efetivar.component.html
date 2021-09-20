@@ -9,14 +9,22 @@
             <th>Produto</th>
             <th>Quantidade</th>
             <th>Preço</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor=" let p of produtos">
             <td><img src="../../../../../arquivos/{{p.nomeArquivo}}" /></td>
             <td>{{p.descricao}}</td>
-            <td><input type="number" class="form-control" value="1" (change)="atualizarpreco(p,$event.target.value)"></td>
-            <td>{{p.preco | number:'1.0-'}}</td>
+            <td>
+              <input type="number" class="form-control" value="1"
+                     (change)="atualizarpreco(p,$event.target.value)"
+                     [(ngModel)]="p.quantidade"
+                     placeholder="1"
+                     min="1">
+            </td>
+            <td>{{p.preco | number:'1.0-2'}}</td>
+            <td><button class="btn btn-secondary btn-sm" (click)="remover(p)">Remover</button></td>
           </tr>
         </tbody>
       </table>

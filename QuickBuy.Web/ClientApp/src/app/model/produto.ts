@@ -5,4 +5,5 @@ export class Produto {
   precoOriginal: number;
   nome: string;
   nomeArquivo: string;
+  quantidade: number;
 }
