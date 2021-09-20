@@ -36,4 +36,8 @@ export class NavMenuComponent {
   get usuario() {
     return this.usuarioServico.usuario;//recebe o usuario autenticado
   }
+
+  public usuario_administrador(): boolean {
+    return this.usuarioServico.usuario_administrador();
+  }
 }

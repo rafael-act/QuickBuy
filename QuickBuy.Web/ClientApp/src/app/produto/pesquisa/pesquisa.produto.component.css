@@ -2,11 +2,6 @@
     color:#666;
 }
 
-tr img{
-    width:10%;
-    height:auto;
-}
-
 .td-descricao{
     width:50%;
 }
@@ -16,6 +11,6 @@ tr img{
   width: 10%;
 }
 
-.td-imagem {
+.td-imagem img{
   width: 50%;
 }

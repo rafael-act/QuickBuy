@@ -30,6 +30,10 @@ export class UsuarioServico {
     return this._usuario != null && this._usuario.email != "" && this._usuario.senha != "";
   }
 
+  public usuario_administrador(): boolean {
+    return this.usuario_autenticado() && this.usuario.ehAdministrador;
+  }
+
   public limpar_sessao() {
     sessionStorage.setItem("usuario-autenticado", "");
     this._usuario = null;
@@ -42,11 +46,11 @@ export class UsuarioServico {
   public verificarUsuario(usuario: Usuario): Observable<Usuario> {
     var body = {
       email: usuario.email,
-      senha: usuario.senha 
+      senha: usuario.senha
     }
 
     //this.baseUrl = raiz do site que pode ser exemplo.: http://www.quickbuy.com
-    return this.http.post<Usuario>(this.baseUrl + "api/usuario/VerificarUsuario", body, { headers :this.headers });
+    return this.http.post<Usuario>(this.baseUrl + "api/usuario/VerificarUsuario", body, { headers: this.headers });
   }
 
   public cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
