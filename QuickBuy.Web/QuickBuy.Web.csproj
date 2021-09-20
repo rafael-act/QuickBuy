@@ -55,6 +55,7 @@
     <TypeScriptCompile Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\loja\produto\loja.produto.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\produto\pesquisa\pesquisa.produto.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\servicos\pedido\pedido.servico.ts" />
   </ItemGroup>
 
   <ItemGroup>
