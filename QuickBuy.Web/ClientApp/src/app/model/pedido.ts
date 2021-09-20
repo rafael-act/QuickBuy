@@ -1,4 +1,6 @@
-export class Pedido {
+import { ItemPedido } from "./itempedido";
+
+export class Pedido{
   public id: number;
   public dataPedido: Date;
   public usuarioId: number;
@@ -9,4 +11,10 @@ export class Pedido {
   public enderecoCompleto: string;
   public numeroEndereco: string;
   public formaPagamentoId: string;
+
+  public itenspedido: ItemPedido[]
+
+  constructor() {
+    this.itenspedido = [];
+  } 
 }

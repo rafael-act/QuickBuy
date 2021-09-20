@@ -36,6 +36,7 @@
     <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.css" />
     <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.html" />
     <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
+    <None Remove="ClientApp\src\app\model\itempedido.ts" />
     <None Remove="ClientApp\src\app\model\pedido.ts" />
     <None Remove="ClientApp\src\app\model\produto.ts" />
     <None Remove="ClientApp\src\app\model\usuario.ts" />
@@ -86,6 +87,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="ClientApp\src\app\model\pedido - Cópia.js">
+      <DependentUpon>pedido.js</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\pedido - Cópia.js.map">
+      <DependentUpon>pedido.js.map</DependentUpon>
+    </None>
     <None Update="ClientApp\src\app\model\usuario - Cópia - Cópia.js.map">
       <DependentUpon>usuario.js.map</DependentUpon>
     </None>
@@ -95,6 +102,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Update="ClientApp\src\app\model\itempedido.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Update="ClientApp\src\app\model\pedido.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

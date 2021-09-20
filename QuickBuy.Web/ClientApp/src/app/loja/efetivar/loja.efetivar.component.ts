@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { forEach } from "@angular/router/src/utils/collection";
+import { Pedido } from "../../model/pedido - Cópia";
 import { Produto } from "../../model/produto";
 import { LojaCarrinhoCompras } from "../carrinho-compras/loja.carrinho.compras"
 
@@ -44,6 +45,6 @@ export class LojaEfetivarComponent implements OnInit {
   }
 
   public efetivarCompra() {
-
+    let pedido = new Pedido();
   }
 }
