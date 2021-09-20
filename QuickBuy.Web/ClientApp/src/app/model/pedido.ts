@@ -7,7 +7,7 @@ export class Pedido{
   public dataPrevisaoEntrega: Date;
   public cep: string;
   public estado: string;
-  public Cidade: string;
+  public cidade: string;
   public enderecoCompleto: string;
   public numeroEndereco: string;
   public formaPagamentoId: string;
@@ -16,5 +16,6 @@ export class Pedido{
 
   constructor() {
     this.itenspedido = [];
+    this.dataPedido = new Date();
   } 
 }
