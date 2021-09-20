@@ -42,4 +42,8 @@ export class LojaEfetivarComponent implements OnInit {
   public atualizarTotal() {
     this.total =this.produtos.reduce((acumulador, produto) => acumulador + produto.preco, 0);//reduce percorre todos os elementos dessa lista
   }
+
+  public efetivarCompra() {
+
+  }
 }

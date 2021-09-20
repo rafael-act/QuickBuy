@@ -23,6 +23,7 @@ var LojaCarrinhoCompras = /** @class */ (function () {
         if (produtoLocalStorage) {
             return JSON.parse(produtoLocalStorage);
         }
+        return this.produtos;
     };
     LojaCarrinhoCompras.prototype.removerProduto = function (produto) {
         var produtoLocalStorage = localStorage.getItem("produtoLocalStorage");

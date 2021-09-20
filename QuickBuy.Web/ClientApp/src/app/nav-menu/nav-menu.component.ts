@@ -47,6 +47,6 @@ export class NavMenuComponent implements OnInit {
   }
 
   public temItensCarrinhoCompras():boolean {
-    this.carrinhoCompras.temItensCarrinhoCompras();
+    return this.carrinhoCompras.temItensCarrinhoCompras();
   }
 }
