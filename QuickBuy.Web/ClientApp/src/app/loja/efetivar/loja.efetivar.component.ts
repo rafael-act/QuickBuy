@@ -3,6 +3,7 @@ import { forEach } from "@angular/router/src/utils/collection";
 import { ItemPedido } from "../../model/itempedido";
 import { Pedido } from "../../model/pedido - Cópia";
 import { Produto } from "../../model/produto";
+import { PedidoServico } from "../../servicos/pedido/pedido.servico";
 import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
 import { LojaCarrinhoCompras } from "../carrinho-compras/loja.carrinho.compras"
 
@@ -17,7 +18,7 @@ export class LojaEfetivarComponent implements OnInit {
   public produtos: Produto[];
   public total: number;
 
-  constructor(private usuarioServico: UsuarioServico) {
+  constructor(private usuarioServico: UsuarioServico, private pedidoServico: PedidoServico) {
 
   }
   ngOnInit(): void {
@@ -50,8 +51,15 @@ export class LojaEfetivarComponent implements OnInit {
   }
 
   public efetivarCompra() {
-    let pedido = this.criarPedido();
+    this.pedidoServico.efetivarCompra(this.criarPedido())
+      .subscribe(
+        pedidoId => {
 
+        },
+        err => {
+          console.log(err.error);
+        }
+      );
 
   }
 
