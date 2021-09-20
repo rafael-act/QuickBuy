@@ -15,8 +15,8 @@
           <tr *ngFor=" let p of produtos">
             <td><img src="../../../../../arquivos/{{p.nomeArquivo}}" /></td>
             <td>{{p.descricao}}</td>
-            <td></td>
-            <td>{{p.preco}}</td>
+            <td><input type="number" class="form-control" value="1" (change)="atualizarpreco(p,$event.target.value)"></td>
+            <td>{{p.preco | number:'1.0-'}}</td>
           </tr>
         </tbody>
       </table>

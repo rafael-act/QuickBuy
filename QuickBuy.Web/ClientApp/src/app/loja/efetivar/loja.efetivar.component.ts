@@ -1,4 +1,4 @@
-import { Component,OnInit} from "@angular/core"
+import { Component, OnInit } from "@angular/core"
 import { Produto } from "../../model/produto";
 import { LojaCarrinhoCompras } from "../carrinho-compras/loja.carrinho.compras"
 
@@ -15,7 +15,14 @@ export class LojaEfetivarComponent implements OnInit {
   ngOnInit(): void {
     this.carrinhoCompras = new LojaCarrinhoCompras();
     this.produtos = this.carrinhoCompras.obterProdutos();
+  }
+
+  public atualizarpreco(produto: Produto, quantidade: number) {
+    if (!produto.precoOriginal) {
+      produto.precoOriginal = produto.preco;
     }
+    
+    produto.preco = produto.precoOriginal * quantidade;
 
-
+  }
 }
