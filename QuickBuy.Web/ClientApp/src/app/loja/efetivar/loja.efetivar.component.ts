@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from "@angular/core"
+import { Router } from "@angular/router";
 import { forEach } from "@angular/router/src/utils/collection";
 import { ItemPedido } from "../../model/itempedido";
 import { Pedido } from "../../model/pedido - Cópia";
@@ -18,9 +20,10 @@ export class LojaEfetivarComponent implements OnInit {
   public produtos: Produto[];
   public total: number;
 
-  constructor(private usuarioServico: UsuarioServico, private pedidoServico: PedidoServico) {
+  constructor(private usuarioServico: UsuarioServico, private pedidoServico: PedidoServico, private router: Router) {
 
   }
+
   ngOnInit(): void {
     this.carrinhoCompras = new LojaCarrinhoCompras();
     this.produtos = this.carrinhoCompras.obterProdutos();
@@ -54,7 +57,11 @@ export class LojaEfetivarComponent implements OnInit {
     this.pedidoServico.efetivarCompra(this.criarPedido())
       .subscribe(
         pedidoId => {
-
+          sessionStorage.setItem("pedidoId", pedidoId.toString());
+          this.produtos = [];
+          this.carrinhoCompras.limparCarrinhoCompras();
+          //redirecionar para outra pagina
+          this.router.navigate(["/compra-realizada-sucesso"]);
         },
         err => {
           console.log(err.error);
