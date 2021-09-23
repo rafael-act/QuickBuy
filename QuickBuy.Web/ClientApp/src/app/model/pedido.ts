@@ -12,10 +12,10 @@ export class Pedido{
   public numeroEndereco: string;
   public formaPagamentoId: string;
 
-  public itenspedido: ItemPedido[]
+  public itensPedido: ItemPedido[]
 
   constructor() {
-    this.itenspedido = [];
+    this.itensPedido = [];
     this.dataPedido = new Date();
   } 
 }

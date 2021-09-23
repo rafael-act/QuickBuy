@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core"
 import { Router } from "@angular/router";
 import { forEach } from "@angular/router/src/utils/collection";
 import { ItemPedido } from "../../model/itempedido";
-import { Pedido } from "../../model/pedido - Cópia";
+import { Pedido } from "../../model/pedido";
 import { Produto } from "../../model/produto";
 import { PedidoServico } from "../../servicos/pedido/pedido.servico";
 import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
@@ -57,6 +57,7 @@ export class LojaEfetivarComponent implements OnInit {
     this.pedidoServico.efetivarCompra(this.criarPedido())
       .subscribe(
         pedidoId => {
+          console.log(pedidoId);
           sessionStorage.setItem("pedidoId", pedidoId.toString());
           this.produtos = [];
           this.carrinhoCompras.limparCarrinhoCompras();
@@ -78,8 +79,8 @@ export class LojaEfetivarComponent implements OnInit {
     //pedido.dataPedido = new Date();
     pedido.estado = "MG";
     pedido.dataPrevisaoEntrega = new Date();
-    pedido.formaPagamentoId = 1;
-    pedido.numeroEndereco = 12;
+    pedido.formaPagamentoId = "1";
+    pedido.numeroEndereco = "12";
     pedido.enderecoCompleto = "completo";
     this.produtos = this.carrinhoCompras.obterProdutos();
 
@@ -93,5 +94,7 @@ export class LojaEfetivarComponent implements OnInit {
 
       pedido.itensPedido.push(itemPedido);
     }
+
+    return pedido;
   }
 }

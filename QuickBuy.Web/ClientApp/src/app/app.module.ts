@@ -32,7 +32,8 @@ import { LojaCompraRealizadaComponent } from './loja/efetivar/loja.compra.realiz
     PesquisaProdutoComponent,
     LojaPesquisaComponent,
     LojaProdutoComponent,
-    LojaEfetivarComponent
+    LojaEfetivarComponent,
+    LojaCompraRealizadaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

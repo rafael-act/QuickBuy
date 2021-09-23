@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuickBuy.Web.Controllers
 {
+    [Route("api/[controller]")]
     public class PedidoController : Controller
     {
         private readonly IPedidoRepositorio _pedidoRepositorio;
@@ -20,16 +21,17 @@ namespace QuickBuy.Web.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult Post([FromBody] Pedido pedido)
         {
             try
             {
                 _pedidoRepositorio.Adicionar(pedido);
-                return Ok();
+                return Ok(pedido.Id);
             }
             catch (Exception ex)
             {
-                BadRequest(ex.ToString());
+                return BadRequest(ex.ToString());
             }
         }
     }
