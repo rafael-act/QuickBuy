@@ -19,6 +19,6 @@ export class PedidoServico {
   }
 
   public efetivarCompra(pedido: Pedido): Observable<number> {
-    this.http.post<number>(this._baseUrl + "api/pedido", JSON.stringify(pedido), { headers: this.headers });
+    return this.http.post<number>(this._baseUrl + "api/pedido", JSON.stringify(pedido), { headers: this.headers });
   }
 }
